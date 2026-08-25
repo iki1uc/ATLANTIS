@@ -3,19 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MXU · BOOT · ADVANCED · EXPLORER · LIVE</title>
+<title>ATLANTIS · BOOT · ENGINE · COCKPIT</title>
 
 <style>
 :root {
     --fg: #0ff;
     --bg: #000;
-    --step1: #f44;
-    --step2: #ff4;
-    --step3: #4f4;
-    --step4: #4ff;
-    --step5: #44f;
-    --step6: #f4f;
     --gold: #ffd700;
+    --step1: #f44;
+    --step2: #4f4;
+    --step3: #4ff;
+    --step4: #f4f;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -41,11 +39,8 @@ header {
 header h1 {
     font-size: 18px;
     color: var(--gold);
-    text-shadow: 0 0 20px var(--gold);
     letter-spacing: 2px;
 }
-header h1 .boot { color: var(--step1); }
-header h1 .adv { color: var(--step3); }
 #clock { font-size: 12px; color: #666; }
 
 main {
@@ -88,27 +83,22 @@ main {
     font-size: 10px;
     font-weight: bold;
     flex-shrink: 0;
-    transition: all 0.3s;
 }
 .step .name { font-weight: bold; font-size: 13px; flex: 1; }
-.step .status { font-size: 10px; color: #444; transition: all 0.3s; }
+.step .status { font-size: 10px; color: #444; }
 .step .indicator {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background: #222;
-    transition: all 0.3s;
     flex-shrink: 0;
 }
-
 .step.active { border-left-color: var(--fg); background: #0f1a1a; }
 .step.active .num { background: var(--fg); color: #000; }
 .step.active .indicator { background: var(--fg); box-shadow: 0 0 12px var(--fg); }
-
 .step.done { border-left-color: #4f4; opacity: 0.7; }
 .step.done .num { background: #4f4; color: #000; }
 .step.done .indicator { background: #4f4; }
-
 .step.error { border-left-color: #f44; background: #1a0a0a; }
 .step.error .num { background: #f44; color: #000; }
 .step.error .indicator { background: #f44; }
@@ -157,13 +147,9 @@ button {
     transition: all 0.2s;
 }
 button:hover { background: #1a1a2a; border-color: var(--gold); }
-button:active { transform: scale(0.95); }
 button.primary { border-color: var(--gold); background: var(--gold); color: #000; }
-button.primary:hover { background: #6cf; border-color: #6cf; }
 button.danger { border-color: #f44; color: #f44; }
-button.danger:hover { background: #f44; color: #000; }
 button.success { border-color: #4f4; color: #4f4; }
-button.success:hover { background: #4f4; color: #000; }
 
 #geo-container {
     grid-column: 1 / -1;
@@ -200,6 +186,18 @@ button.success:hover { background: #4f4; color: #000; }
 #config-panel .item .label { color: #444; }
 #config-panel .item .value { color: var(--gold); }
 
+/* Cockpit-Richter */
+.cockpit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 4px;
+    font-size: 9px;
+    color: #666;
+    margin-top: 4px;
+}
+.cockpit-grid .wert { color: var(--fg); }
+.cockpit-grid .gold { color: var(--gold); }
+
 @media (max-width: 800px) {
     main { grid-template-columns: 1fr; }
     #geo-container { min-height: 60px; }
@@ -210,7 +208,7 @@ button.success:hover { background: #4f4; color: #000; }
 
 <header>
     <div>
-        <h1><span class="boot">⚡ MXU</span> · <span class="adv">BOOT</span> · ADVANCED · EXPLORER</h1>
+        <h1>⚡ ATLANTIS · BOOT · ENGINE · COCKPIT</h1>
     </div>
     <div>
         <span id="clock">⏱️ --:--:--</span>
@@ -225,79 +223,39 @@ button.success:hover { background: #4f4; color: #000; }
             <span id="progress-text" style="font-size:10px;color:#444;">0/10</span>
         </div>
 
-        <div class="step" data-step="0">
-            <span class="num">1</span>
-            <span class="name">DOOR</span>
-            <span class="status">⏳ wartet</span>
-            <span class="indicator"></span>
-        </div>
-        <div class="step" data-step="1">
-            <span class="num">2</span>
-            <span class="name">DOO</span>
-            <span class="status">⏳ wartet</span>
-            <span class="indicator"></span>
-        </div>
-        <div class="step" data-step="2">
-            <span class="num">3</span>
-            <span class="name">RESPO</span>
-            <span class="status">⏳ wartet</span>
-            <span class="indicator"></span>
-        </div>
-        <div class="step" data-step="3">
-            <span class="num">4</span>
-            <span class="name">OS</span>
-            <span class="status">⏳ wartet</span>
-            <span class="indicator"></span>
-        </div>
-        <div class="step" data-step="4">
-            <span class="num">5</span>
-            <span class="name">NC.engine</span>
-            <span class="status">⏳ wartet</span>
-            <span class="indicator"></span>
-        </div>
-        <div class="step" data-step="5">
-            <span class="num">6</span>
-            <span class="name">243</span>
-            <span class="status">⏳ wartet</span>
-            <span class="indicator"></span>
-        </div>
-        <div class="step" data-step="6">
-            <span class="num">7</span>
-            <span class="name">SCORE</span>
-            <span class="status">⏳ wartet</span>
-            <span class="indicator"></span>
-        </div>
-        <div class="step" data-step="7">
-            <span class="num">8</span>
-            <span class="name">WETTE</span>
-            <span class="status">⏳ wartet</span>
-            <span class="indicator"></span>
-        </div>
-        <div class="step" data-step="8">
-            <span class="num">9</span>
-            <span class="name">SLIDE</span>
-            <span class="status">⏳ wartet</span>
-            <span class="indicator"></span>
-        </div>
-        <div class="step" data-step="9">
-            <span class="num">10</span>
-            <span class="name">⚡ Axiom</span>
-            <span class="status">⏳ wartet</span>
-            <span class="indicator"></span>
-        </div>
+        <div class="step" data-step="0"><span class="num">1</span><span class="name">DOOR</span><span class="status">⏳ wartet</span><span class="indicator"></span></div>
+        <div class="step" data-step="1"><span class="num">2</span><span class="name">DOO</span><span class="status">⏳ wartet</span><span class="indicator"></span></div>
+        <div class="step" data-step="2"><span class="num">3</span><span class="name">RESPO</span><span class="status">⏳ wartet</span><span class="indicator"></span></div>
+        <div class="step" data-step="3"><span class="num">4</span><span class="name">OS</span><span class="status">⏳ wartet</span><span class="indicator"></span></div>
+        <div class="step" data-step="4"><span class="num">5</span><span class="name">NC.engine</span><span class="status">⏳ wartet</span><span class="indicator"></span></div>
+        <div class="step" data-step="5"><span class="num">6</span><span class="name">243</span><span class="status">⏳ wartet</span><span class="indicator"></span></div>
+        <div class="step" data-step="6"><span class="num">7</span><span class="name">SCORE</span><span class="status">⏳ wartet</span><span class="indicator"></span></div>
+        <div class="step" data-step="7"><span class="num">8</span><span class="name">WETTE</span><span class="status">⏳ wartet</span><span class="indicator"></span></div>
+        <div class="step" data-step="8"><span class="num">9</span><span class="name">SLIDE</span><span class="status">⏳ wartet</span><span class="indicator"></span></div>
+        <div class="step" data-step="9"><span class="num">10</span><span class="name">⚡ Axiom</span><span class="status">⏳ wartet</span><span class="indicator"></span></div>
 
         <div id="controls">
             <button class="primary" id="btn-boot">▶ BOOT</button>
             <button id="btn-step">⏭ STEP</button>
             <button class="danger" id="btn-reset">⟲ RESET</button>
             <button class="success" id="btn-auto">▶ AUTO</button>
+            <button id="btn-richter">⚡ RICHTER</button>
+            <button id="btn-admin">🟥 ADMIN‑0</button>
+        </div>
+
+        <!-- Cockpit-Richter Anzeige -->
+        <div class="cockpit-grid">
+            <div>Energie: <span class="gold" id="energie-wert">0</span></div>
+            <div>Zustand: <span class="wert" id="zustand-wert">idle</span></div>
+            <div>Entscheidung: <span class="wert" id="entscheidung-wert">—</span></div>
+            <div>Admin: <span class="wert" id="admin-status">● bereit</span></div>
         </div>
     </div>
 
     <div id="status-panel">
         <h3>📊 SYSTEM-STATUS</h3>
         <div id="live-log">
-            <div class="entry"><span class="time">[INIT]</span> <span class="msg ok">⚡ MXU · BOOT · ADVANCED · EXPLORER</span></div>
+            <div class="entry"><span class="time">[INIT]</span> <span class="msg ok">⚡ ATLANTIS · BOOT · ENGINE · COCKPIT</span></div>
             <div class="entry"><span class="time">[INIT]</span> <span class="msg">📦 10 Module — warte auf BOOT</span></div>
         </div>
         <div style="display:flex;gap:10px;font-size:10px;color:#666;border-top:1px solid #1a1a2a;padding-top:6px;">
@@ -317,31 +275,83 @@ button.success:hover { background: #4f4; color: #000; }
 </div>
 
 <div id="config-panel">
-    <span class="item"><span class="label">📂 System:</span> <span class="value">MXU · BOOT</span></span>
+    <span class="item"><span class="label">📂 System:</span> <span class="value">ATLANTIS</span></span>
     <span class="item"><span class="label">🔄 Status:</span> <span class="value" id="status-value">BEREIT</span></span>
     <span class="item"><span class="label">⚡ Modus:</span> <span class="value" id="mode-value">IDLE</span></span>
 </div>
 
-<script>
+<script type="module">
 // ============================================================
-// 1. KONFIGURATION — INTERNE MODULE (keine Imports)
+// ATLANTIS · BOOT · ENGINE · COCKPIT
 // ============================================================
 
-// --- MODULE-DEFINITIONEN ---
+import { MXU } from './engine/mxu.js';
+import { AXINXA } from './engine/AXINXA.js';
+import { SLI } from './engine/SLI.js';
+import { MXU_CH } from './engine/MXU_ch.js';
+
+// ─── ADMIN‑0 ──────────────────────────────────────────────────
+const ADMIN0 = MXU.init();
+AXINXA.attach(ADMIN0);
+SLI.attach(ADMIN0);
+ADMIN0.mxu_ch = MXU_CH.init();
+ADMIN0.hoehe = "81";
+ADMIN0.breite = "9";
+ADMIN0.tiefe = "3";
+ADMIN0.axiom = "allxall · ANKER-Tech · Energie-Kugel";
+
+// ─── RICHTER ──────────────────────────────────────────────────
+const RICHTER = {
+    energie: 0,
+    zustand: 'idle',
+    entscheidung: null,
+
+    bewerte(triolet) {
+        const energie = triolet.gewicht * 0.618;
+        this.energie += energie;
+        this.zustand = energie > 1.5 ? 'hoch' : 'niedrig';
+        return { energie, zustand: this.zustand };
+    },
+
+    entscheide() {
+        this.entscheidung = this.energie > 20 ? 'NARRATIV GÜLTIG' :
+                           this.energie > 10 ? 'NARRATIV MÖGLICH' :
+                           'NARRATIV UNSICHER';
+        ADMIN0.level = this.energie > 15 ? 2 : 1;
+        ADMIN0.score.eval = this.energie;
+        ADMIN0.sli_addScore(this.energie);
+        return this.entscheidung;
+    },
+
+    status() {
+        return {
+            energie: this.energie,
+            zustand: this.zustand,
+            entscheidung: this.entscheidung,
+            admin: {
+                axis: ADMIN0.axis,
+                level: ADMIN0.level,
+                score: ADMIN0.score.eval,
+                slide: ADMIN0.sli_slide
+            }
+        };
+    }
+};
+
+// ─── MODULES ──────────────────────────────────────────────────
 const MODULES = [
-    { id: 'DOOR',     fn: 'doorOpen',     label: 'Tür öffnen' },
-    { id: 'DOO',      fn: 'dooRun',       label: 'Domain starten' },
-    { id: 'RESPO',    fn: 'respoCheck',   label: 'RESPO prüfen' },
-    { id: 'OS',       fn: 'osStart',      label: 'OS booten' },
-    { id: 'NC.engine',fn: 'ncStart',      label: 'NC-Engine starten' },
-    { id: '243',      fn: 'two43Start',   label: '243-System aktivieren' },
-    { id: 'SCORE',    fn: 'scoreEval',    label: 'SCORE bewerten' },
-    { id: 'WETTE',    fn: 'wettePredict', label: 'WETTE prognostizieren' },
-    { id: 'SLIDE',    fn: 'slideOptimize',label: 'SLIDE optimieren' },
-    { id: 'AXIOM',    fn: 'axiomActivate',label: '⚡ AXIOM aktivieren' }
+    { id: 'DOOR', fn: 'doorOpen', label: 'Tür öffnen' },
+    { id: 'DOO', fn: 'dooRun', label: 'Domain starten' },
+    { id: 'RESPO', fn: 'respoCheck', label: 'RESPO prüfen' },
+    { id: 'OS', fn: 'osStart', label: 'OS booten' },
+    { id: 'NC.engine', fn: 'ncStart', label: 'NC-Engine starten' },
+    { id: '243', fn: 'two43Start', label: '243-System aktivieren' },
+    { id: 'SCORE', fn: 'scoreEval', label: 'SCORE bewerten' },
+    { id: 'WETTE', fn: 'wettePredict', label: 'WETTE prognostizieren' },
+    { id: 'SLIDE', fn: 'slideOptimize', label: 'SLIDE optimieren' },
+    { id: 'AXIOM', fn: 'axiomActivate', label: '⚡ AXIOM aktivieren' }
 ];
 
-// --- MODUL-FUNKTIONEN (Fallbacks) ---
 const MODULE_FNS = {
     doorOpen: () => ({ status: 'open', message: 'Tür geöffnet' }),
     dooRun: () => ({ status: 'running', message: 'DOO läuft' }),
@@ -355,9 +365,7 @@ const MODULE_FNS = {
     axiomActivate: () => ({ status: 'active', message: '⚡ AXIOM aktiviert — System treu' })
 };
 
-// ============================================================
-// 2. DOM-REFERENZEN
-// ============================================================
+// ─── DOM ──────────────────────────────────────────────────────
 const steps = document.querySelectorAll('.step');
 const logDiv = document.getElementById('live-log');
 const statusLed = document.getElementById('status-led');
@@ -367,45 +375,26 @@ const cycleCountEl = document.getElementById('cycle-count');
 const geoDisplay = document.getElementById('geo-display');
 const statusValue = document.getElementById('status-value');
 const modeValue = document.getElementById('mode-value');
+const energieWert = document.getElementById('energie-wert');
+const zustandWert = document.getElementById('zustand-wert');
+const entscheidungWert = document.getElementById('entscheidung-wert');
+const adminStatus = document.getElementById('admin-status');
 
 const btnBoot = document.getElementById('btn-boot');
 const btnStep = document.getElementById('btn-step');
 const btnReset = document.getElementById('btn-reset');
 const btnAuto = document.getElementById('btn-auto');
+const btnRichter = document.getElementById('btn-richter');
+const btnAdmin = document.getElementById('btn-admin');
 
-// ============================================================
-// 3. STATE
-// ============================================================
 let currentStep = -1;
 let isRunning = false;
 let autoMode = false;
 let autoTimer = null;
 let cycleCount = 0;
 let stepTimeouts = [];
-let bootResults = [];
 
-// ============================================================
-// 4. GEO-ASCII-ANIMATION
-// ============================================================
-const GEO_FRAMES = [
-    `   ▲\n  / \\\n /   \\\n/_____\\`,
-    `   ▲\n  /o\\\n /   \\\n/_____\\`,
-    `   ▲\n  /o\\\n / o \\\n/_____\\`,
-    `   ▲\n  /o\\\n / o \\\n/__o__\\`,
-    `   ▲\n  /o\\\n / o \\\n/__o__\\\n  ●`,
-    `   ○\n  / \\\n /   \\\n/_____\\`
-];
-let geoIndex = 0;
-
-function animateGeo() {
-    geoIndex = (geoIndex + 1) % GEO_FRAMES.length;
-    geoDisplay.textContent = GEO_FRAMES[geoIndex];
-}
-setInterval(animateGeo, 800);
-
-// ============================================================
-// 5. LOG
-// ============================================================
+// ─── LOG ──────────────────────────────────────────────────────
 function log(msg, type = 'info') {
     const entry = document.createElement('div');
     entry.className = 'entry';
@@ -417,9 +406,23 @@ function log(msg, type = 'info') {
     while (logDiv.children.length > 100) logDiv.removeChild(logDiv.firstChild);
 }
 
-// ============================================================
-// 6. STEP-FUNKTIONEN
-// ============================================================
+// ─── RICHTER ANZEIGEN ────────────────────────────────────────
+function zeigeRichter() {
+    const status = RICHTER.status();
+    energieWert.textContent = RICHTER.energie.toFixed(2);
+    zustandWert.textContent = RICHTER.zustand;
+    entscheidungWert.textContent = RICHTER.entscheidung || '—';
+    adminStatus.textContent = `● ${ADMIN0.state}`;
+    log(`⚡ RICHTER: Energie = ${RICHTER.energie.toFixed(2)} · ${RICHTER.entscheidung}`, 'ok');
+}
+
+// ─── ADMIN ZEIGEN ─────────────────────────────────────────────
+function zeigeAdmin() {
+    log(`🟥 ADMIN‑0: ${JSON.stringify(ADMIN0, null, 2)}`, 'ok');
+    adminStatus.textContent = '● ADMIN';
+}
+
+// ─── RESET ────────────────────────────────────────────────────
 function resetAll() {
     isRunning = false;
     if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
@@ -428,11 +431,13 @@ function resetAll() {
     stepTimeouts.forEach(t => clearTimeout(t));
     stepTimeouts = [];
     currentStep = -1;
-    bootResults = [];
     cycleCount = 0;
     cycleCountEl.textContent = 'Zyklus 0';
     statusValue.textContent = 'RESET';
     modeValue.textContent = 'IDLE';
+    RICHTER.energie = 0;
+    RICHTER.zustand = 'idle';
+    RICHTER.entscheidung = null;
 
     steps.forEach((step) => {
         step.className = 'step';
@@ -444,6 +449,7 @@ function resetAll() {
     updateModuleCount();
     statusLed.textContent = '●';
     statusLed.style.color = '#f44';
+    zeigeRichter();
     log('⟲ RESET — Alle Module zurückgesetzt', 'warn');
 }
 
@@ -457,6 +463,7 @@ function updateModuleCount() {
     moduleCount.textContent = active;
 }
 
+// ─── STEP ─────────────────────────────────────────────────────
 function executeStep(index) {
     if (index >= MODULES.length) {
         log('✅ ALLE MODULE AUSGEFÜHRT — System bereit!', 'ok');
@@ -465,6 +472,7 @@ function executeStep(index) {
         statusValue.textContent = 'BEREIT';
         modeValue.textContent = 'SYSTEM OK';
         isRunning = false;
+        ADMIN0.state = 'BEREIT';
 
         if (autoMode) {
             cycleCount++;
@@ -487,6 +495,7 @@ function executeStep(index) {
     isRunning = true;
     statusValue.textContent = `BOOT ${index+1}/${MODULES.length}`;
     modeValue.textContent = 'RUNNING';
+    ADMIN0.state = 'BOOTING';
 
     log(`▶ ${module.id} — ${module.label}`, 'info');
 
@@ -499,6 +508,22 @@ function executeStep(index) {
             const result = MODULE_FNS[module.fn] ? MODULE_FNS[module.fn]() : { status: 'ok', message: 'erledigt' };
             log(`✅ ${module.id} — ${result.message || 'erfolgreich'}`, 'ok');
 
+            // Richter bewertet bei 243
+            if (module.id === '243' && result.status === 'active') {
+                // Simuliere Triolets
+                const triolets = [
+                    { ecke1: 'a', ecke2: 'b', ecke3: 'c', gewicht: 2 },
+                    { ecke1: 'x', ecke2: 'y', ecke3: 'z', gewicht: 3 },
+                    { ecke1: 'OS', ecke2: 'BOOT', ecke3: '243', gewicht: 1 }
+                ];
+                for (const t of triolets) {
+                    RICHTER.bewerte(t);
+                }
+                RICHTER.entscheide();
+                zeigeRichter();
+                log(`⚡ RICHTER: Energie = ${RICHTER.energie.toFixed(2)}`, 'ok');
+            }
+
             if (module.id === 'RESPO') log('📊 RESPO-Matrix: 3-9-27-81', 'ok');
             if (module.id === 'NC.engine') log('🧠 NC.engine: 243 Neuronen', 'ok');
             if (module.id === 'AXIOM') {
@@ -506,6 +531,7 @@ function executeStep(index) {
                 geoDisplay.textContent = `   ★\n  / \\\n /   \\\n/_____\\\n  ●  ●`;
                 statusLed.textContent = '●';
                 statusLed.style.color = '#ffd700';
+                ADMIN0.state = 'AKTIV';
             }
 
             updateProgress();
@@ -520,6 +546,7 @@ function executeStep(index) {
             statusLed.style.color = '#f44';
             statusValue.textContent = 'FEHLER';
             modeValue.textContent = 'ERROR';
+            ADMIN0.state = 'ERROR';
             isRunning = false;
             log('⛔ Boot abgebrochen — bitte RESET', 'err');
         }
@@ -538,8 +565,8 @@ function boot() {
     statusLed.style.color = '#ff4';
     statusValue.textContent = 'BOOTING';
     modeValue.textContent = 'START';
+    ADMIN0.state = 'STARTING';
     currentStep = -1;
-    bootResults = [];
     executeStep(0);
 }
 
@@ -566,137 +593,70 @@ function toggleAuto() {
     }
 }
 
-// ============================================================
-// 7. TASTATUR
-// ============================================================
+// ─── RICHTER BEWERTEN ─────────────────────────────────────────
+function richterBewerte() {
+    // Simuliere Triolets
+    const triolets = [
+        { ecke1: 'a', ecke2: 'b', ecke3: 'c', gewicht: 2 },
+        { ecke1: 'x', ecke2: 'y', ecke3: 'z', gewicht: 3 },
+        { ecke1: 'OS', ecke2: 'BOOT', ecke3: '243', gewicht: 1 },
+        { ecke1: 'DOOR', ecke2: 'DOO', ecke3: 'RESPO', gewicht: 2 }
+    ];
+    RICHTER.energie = 0;
+    for (const t of triolets) {
+        RICHTER.bewerte(t);
+    }
+    RICHTER.entscheide();
+    zeigeRichter();
+    log(`⚡ RICHTER: Energie = ${RICHTER.energie.toFixed(2)} · ${RICHTER.entscheidung}`, 'ok');
+}
+
+// ─── EVENTS ──────────────────────────────────────────────────
+btnBoot.addEventListener('click', boot);
+btnStep.addEventListener('click', stepManual);
+btnReset.addEventListener('click', resetAll);
+btnAuto.addEventListener('click', toggleAuto);
+btnRichter.addEventListener('click', richterBewerte);
+btnAdmin.addEventListener('click', zeigeAdmin);
+
+// ─── TASTATUR ──────────────────────────────────────────────────
 document.addEventListener('keydown', (e) => {
     if (e.key === 'b' || e.key === 'B') btnBoot.click();
     if (e.key === 's' || e.key === 'S') btnStep.click();
     if (e.key === 'r' || e.key === 'R') btnReset.click();
     if (e.key === 'a' || e.key === 'A') btnAuto.click();
+    if (e.key === 'x' || e.key === 'X') btnRichter.click();
     if (e.key === ' ') { e.preventDefault(); toggleAuto(); }
 });
 
-// ============================================================
-// 8. BUTTON-BINDING
-// ============================================================
-btnBoot.addEventListener('click', boot);
-btnStep.addEventListener('click', stepManual);
-btnReset.addEventListener('click', resetAll);
-btnAuto.addEventListener('click', toggleAuto);
-
-// ============================================================
-// 9. UHR
-// ============================================================
+// ─── UHR ──────────────────────────────────────────────────────
 function updateClock() {
     document.getElementById('clock').textContent = `⏱️ ${new Date().toLocaleTimeString()}`;
 }
 setInterval(updateClock, 1000);
 updateClock();
 
-// ============================================================
-// 10. INIT
-// ============================================================
-log('⚡ MXU · BOOT · ADVANCED · EXPLORER geladen', 'ok');
+// ─── INIT ────────────────────────────────────────────────────
+log('⚡ ATLANTIS · BOOT · ENGINE · COCKPIT geladen', 'ok');
 log(`📦 ${MODULES.length} Module integriert`, 'info');
-log('⌨️  b=Boot  s=Step  r=Reset  a=Auto  space=Auto-Toggle', 'info');
+log('⌨️  b=Boot  s=Step  r=Reset  a=Auto  space=Toggle  x=Richter', 'info');
 
-// Module zählen
 updateModuleCount();
 updateProgress();
 statusValue.textContent = 'BEREIT';
 modeValue.textContent = 'IDLE';
+zeigeRichter();
 
-console.log('⚡ MXU · BOOT · ADVANCED · EXPLORER');
+console.log('⚡ ATLANTIS · BOOT · ENGINE · COCKPIT');
 console.log(`📦 ${MODULES.length} Module integriert`);
-console.log('⌨️  b=Boot  s=Step  r=Reset  a=Auto  space=Toggle');
+console.log('⌨️  b=Boot  s=Step  r=Reset  a=Auto  space=Toggle  x=Richter');
 
 // Auto-Boot nach 1 Sekunde
 setTimeout(() => {
     log('🔄 Auto-Boot aktiv — starte...', 'warn');
     boot();
 }, 1000);
-
-    <!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<title>ATLANTIS · Engine · Höhe · Breite · Tiefe · Axiom</title>
-
-<style>
-  body { background:#000; color:#0f0; font-family:Consolas; padding:40px; }
-  h1 { color:#6cf; text-align:center; }
-  .console {
-    background:#111;
-    border:1px solid #333;
-    padding:20px;
-    margin-top:30px;
-    white-space:pre;
-    font-size:16px;
-  }
-  .btn {
-    margin-top:20px;
-    padding:12px 20px;
-    background:#12263a;
-    color:#9cf;
-    border:1px solid #1f2937;
-    cursor:pointer;
-    border-radius:6px;
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-  }
-  .btn:hover { background:#1a3a55; transform:scale(1.05); }
-</style>
-</head>
-
-<body>
-
-<h1>ATLANTIS · Engine · me/our/u</h1>
-
-<div id="engine" class="console">ATLANTIS bereit…</div>
-
-<button class="btn" onclick="startATLANTIS()">ATLANTIS starten</button>
-
-<script type="module">
-import { MXU } from "./mxu.js";
-import { AXINXA } from "./AXINXA.js";
-import { MXU_CH } from "./MXU_ch.js";
-import { SLI } from "./SLI.js";
-
-function startATLANTIS(){
-
-  // MXU CORE
-  let core = MXU.init();
-
-  // AXINXA
-  core = AXINXA.attach(core);
-
-  // MXU-CH
-  core.mxu_ch = MXU_CH.init();
-
-  // SLI
-  core = SLI.attach(core);
-
-  // Höhe / Breite / Tiefe / Axiom
-  core.hoehe = "81";
-  core.breite = "9";
-  core.tiefe = "3";
-  core.axiom = "allxall · ANKER-Tech · Energie-Kugel";
-
-  document.getElementById("engine").innerText =
-    JSON.stringify(core, null, 2);
-
-  console.log("ATLANTIS Engine gestartet:", core);
-}
 </script>
-
-</body>
-</html>
-
-
-</script>
-open MAIN.respo.index.html
 
 </body>
 </html>
