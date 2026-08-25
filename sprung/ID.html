@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>SPRUNG – ID‑Modul (◉)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    background: #000;
+    color: #e6e6e6;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 20px;
+    color: #ffdd00;
+    font-size: 40px;
+    letter-spacing: 4px;
+  }
+
+  .panel {
+    margin: 20px;
+    padding: 20px;
+    background: #111;
+    border-radius: 10px;
+    border: 1px solid #333;
+  }
+
+  .panel h2 {
+    color: #00eaff;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    display: inline-block;
+    margin: 6px;
+    padding: 8px 14px;
+    background: #00eaff;
+    color: #000;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+  }
+
+  .btn:hover {
+    background: #00bcd4;
+    transform: scale(1.05);
+  }
+
+  #live {
+    margin: 20px;
+    padding: 20px;
+    background: #111;
+    border-radius: 10px;
+    border: 1px solid #333;
+    color: #ffdd00;
+    white-space: pre-wrap;
+    font-size: 16px;
+  }
+
+  .symbol {
+    text-align: center;
+    font-size: 80px;
+    color: #ffdd00;
+    margin-top: 10px;
+  }
+</style>
+
+<script src="GEO.physik.js"></script>
+<script src="GEO.geo.js"></script>
+<script src="NC.engine.js"></script>
+<script src="dyn.js"></script>
+<script src="sure.stand.js"></script>
+<script src="zen.stand.js"></script>
+<script src="hardware.stand.js"></script>
+<script src="neo.lauf.js"></script>
+<script src="sprung.js"></script>
+
+</head>
+
+<body>
+
+<h1>SPRUNG – Identitäts‑Modul</h1>
+<div class="symbol">◉</div>
+
+<div class="panel">
+  <h2>Navigation</h2>
+  <a class="btn" href="index.html">Start</a>
+  <a class="btn" href="README.md">README</a>
+  <a class="btn" href="sprung.js">SPRUNG‑Code</a>
+</div>
+
+<div class="panel">
+  <h2>SPRUNG‑Funktionen</h2>
+  <button class="btn" onclick="runSprung()">SPRUNG starten</button>
+  <button class="btn" onclick="runNext()">SPRUNG.next()</button>
+</div>
+
+<div class="panel">
+  <h2>Alle Techniken</h2>
+  <button class="btn" onclick="runNC()">NC.engine</button>
+  <button class="btn" onclick="runGEO()">GEO.all</button>
+  <button class="btn" onclick="runPhysik()">GEO.physik</button>
+  <button class="btn" onclick="runDyn()">DYN.axis</button>
+  <button class="btn" onclick="runSure()">SURE</button>
+  <button class="btn" onclick="runZen()">ZEN</button>
+  <button class="btn" onclick="runHardware()">Hardware</button>
+  <button class="btn" onclick="runNeo()">NEO</button>
+</div>
+
+<div id="live"></div>
+
+<script>
+  let sprungObj = null;
+
+  function runSprung() {
+    sprungObj = SPRUNG(9);
+    document.getElementById("live").innerText =
+      "SPRUNG‑Objekt:\n" + JSON.stringify(sprungObj, null, 2);
+  }
+
+  function runNext() {
+    if (!sprungObj) return runSprung();
+    const out = sprungObj.next;
+    document.getElementById("live").innerText =
+      "SPRUNG.next:\n" + JSON.stringify(out, null, 2);
+  }
+
+  function runNC() {
+    const out = NC.run(9);
+    document.getElementById("live").innerText =
+      "NC.engine:\n" + JSON.stringify(out, null, 2);
+  }
+
+  function runGEO() {
+    const out = GEOG.all(9);
+    document.getElementById("live").innerText =
+      "GEO.all:\n" + JSON.stringify(out, null, 2);
+  }
+
+  function runPhysik() {
+    const out = GEOP.cube(9);
+    document.getElementById("live").innerText =
+      "GEO.physik:\n" + JSON.stringify(out, null, 2);
+  }
+
+  function runDyn() {
+    const out = DYN.axis("SPRUNG", 9);
+    document.getElementById("live").innerText =
+      "DYN.axis:\n" + JSON.stringify(out, null, 2);
+  }
+
+  function runSure() {
+    const out = SURE(9);
+    document.getElementById("live").innerText =
+      "SURE:\n" + JSON.stringify(out, null, 2);
+  }
+
+  function runZen() {
+    const out = ZEN(9);
+    document.getElementById("live").innerText =
+      "ZEN:\n" + JSON.stringify(out, null, 2);
+  }
+
+  function runHardware() {
+    const out = HARDWARE(9);
+    document.getElementById("live").innerText =
+      "Hardware:\n" + JSON.stringify(out, null, 2);
+  }
+
+  function runNeo() {
+    const out = NEO(9);
+    document.getElementById("live").innerText =
+      "NEO:\n" + JSON.stringify(out, null, 2);
+  }
+
+  document.getElementById("live").innerText =
+    "SPRUNG‑ID geladen.\n◉ Ein Zeichen. Alle Techniken. Volle Kompatibilität.";
+</script>
+
+</body>
+</html>
