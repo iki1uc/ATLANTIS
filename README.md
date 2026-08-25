@@ -1,4 +1,4 @@
-# ATLANTIS · ADMIN‑0 · Kernel-Ebene
+# ATLANTIS · ADMIN‑14 · Kernel-Ebene
 
 ATLANTIS ist die mathematische Ebene des iki1uc‑Systems.  
 Sie bildet den zentralen Loop‑Knoten zwischen Traum, Realraum, Zukunft und Echo.
