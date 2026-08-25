@@ -616,6 +616,85 @@ setTimeout(() => {
     log('🔄 Auto-Boot aktiv — starte...', 'warn');
     boot();
 }, 1000);
+
+    <!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>ATLANTIS · Engine · Höhe · Breite · Tiefe · Axiom</title>
+
+<style>
+  body { background:#000; color:#0f0; font-family:Consolas; padding:40px; }
+  h1 { color:#6cf; text-align:center; }
+  .console {
+    background:#111;
+    border:1px solid #333;
+    padding:20px;
+    margin-top:30px;
+    white-space:pre;
+    font-size:16px;
+  }
+  .btn {
+    margin-top:20px;
+    padding:12px 20px;
+    background:#12263a;
+    color:#9cf;
+    border:1px solid #1f2937;
+    cursor:pointer;
+    border-radius:6px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .btn:hover { background:#1a3a55; transform:scale(1.05); }
+</style>
+</head>
+
+<body>
+
+<h1>ATLANTIS · Engine · me/our/u</h1>
+
+<div id="engine" class="console">ATLANTIS bereit…</div>
+
+<button class="btn" onclick="startATLANTIS()">ATLANTIS starten</button>
+
+<script type="module">
+import { MXU } from "./mxu.js";
+import { AXINXA } from "./AXINXA.js";
+import { MXU_CH } from "./MXU_ch.js";
+import { SLI } from "./SLI.js";
+
+function startATLANTIS(){
+
+  // MXU CORE
+  let core = MXU.init();
+
+  // AXINXA
+  core = AXINXA.attach(core);
+
+  // MXU-CH
+  core.mxu_ch = MXU_CH.init();
+
+  // SLI
+  core = SLI.attach(core);
+
+  // Höhe / Breite / Tiefe / Axiom
+  core.hoehe = "81";
+  core.breite = "9";
+  core.tiefe = "3";
+  core.axiom = "allxall · ANKER-Tech · Energie-Kugel";
+
+  document.getElementById("engine").innerText =
+    JSON.stringify(core, null, 2);
+
+  console.log("ATLANTIS Engine gestartet:", core);
+}
+</script>
+
+</body>
+</html>
+
+
 </script>
 open MAIN.respo.index.html
 
